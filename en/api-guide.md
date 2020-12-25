@@ -3,9 +3,9 @@
 ## v2.4 API Overview  
 
 ### Changes from v 2.3
-1. 각 메시지(단문, 장문, 인증) 발송 목록 검색 및 발송 단일 검색 응답 필드가 추가되었습니다.
-    - 추가된 필드: messageType, recipientSeq
-2. 발송 단일 검색 조건에 사용되는 [mtPr]이 [recipientSeq]로 변경되었습니다.
+1. Each message (short text, long text, authentication) sent list search and single sent SMS search response fields have been added.
+    - Fields added: messageType, recipientSeq
+2. [mtPr] that is used for single sent SMS search condition has been changed to [recipientSeq].
 
 ### [API Domain]
 
