@@ -1,11 +1,11 @@
 ## Notification > SMS > Release Notes
 
-### 2020. 12. 29.
-### 기능 개선/변경
-* [API] 단문/장문/인증용 SMS 발송 목록 검색 및 발송 단일 검색의 응답 본문 일부 변경
-    * messageType/recipientSeq 필드가 추가됩니다.
-    * mtPr 필드가 삭제됩니다.
-    * 자세한 사항은 [[API 가이드](./api-guide/#sms_4)]를 참고하시기 바랍니다.
+### December 29, 2020
+### Updates/Changes
+* [API] Applied partial changes to response body of SMS sent list search and send single search for short text/long text/authentication
+    * messageType/recipientSeq field is added.
+    * mtPr field is deleted.
+    * For more information, see [API Guide](./api-guide/#sms_4).
 
 ### July 28, 2020
 ### Feature Updates 
