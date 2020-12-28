@@ -5085,3 +5085,76 @@ curl -X DELETE \
 |header.isSuccessful|	Boolean|	Successful or not|
 |header.resultCode|	Integer|	Failure code|
 |header.resultMessage|	String|	Failure message|
+
+## Webhook
+A POST request is created for the URL specified by the webhook settings when a specific event occurs in the SMS service.<br>
+The API document for the created POST request.
+
+### Send webhook
+[URL]
+|Http method|	URI|
+|---|---|
+| POST | The target URL defined by webhook settings |
+
+[Header]
+|Value|	Type|	Description|
+|---|---|---|
+|X-Toast-Webhook-Signature|	String|	The signature entered when webhook is configured|
+
+[Request body]
+
+|Value|	Type|	Description|
+|---|---|---|
+|hooksId|	String|	A unique ID created every time a POST request is sent to the URL specified by webhook settings|
+|webhookConfigId|	String|Webhook setting ID|
+|productName|	String|	The name of the service where a webhook event occurred |
+|appKey|	String| The Appkey of the service where a webhook event occurred|
+|event|	String|	Webhook event name<br>* UNSUBSCRIBE: Register ad text receipt number|
+|hooks|	List\<Map\> | Data at the time of a webhook event<br>* See the [Definition of hooks by event type]( (/#event-hooks)) for more information.|
+
+#### cURL
+```
+curl -X POST \
+    '{TargetUrl}' \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -H 'X-Toast-Webhook-Signature: application/json;charset=UTF-8' \
+    -d '{
+        "hooksId":"202007271010101010sadasdavas",
+        "webhookConfigId":"String",
+        "productName":"Sms",
+        "appKey":"akb3dukdmdjsdSvgk",
+        "event":"UNSUBSCRIBE",
+        "hooks":[
+            {
+                ...
+            }
+        ]
+    }
+'
+```
+
+<span id="event-hooks"></span>
+### Definition of hooks by event type
+The specifications of the hooks data per event type at the time of the POST request creation using the URL defined by the webhook settings.
+
+#### Register ad mail receipt number
+|Value|	Type|	Description|
+|---|---|---|
+|hooks|	List\<Map\> | Data at the time of a webhook event|
+|- hookId|	String| A unique ID created when an event occurs in a service |
+|- recipientNo|	String|	Mobile phone number of which call is blocked |
+|- unsubscribeNo|	String|	The 080 number blacklisted in the call block service |
+|- enterpriseName|	String|	The business name blacklisted in the call block service |
+|- createdDateTime|	String| The time and date of call block request<br>* yyyy-MM-dd'T'HH:mm:ss.SSSXXX|
+
+```json
+"hooks":[
+    {
+        "hookId" : "202007271010101010sadasdavas",
+        "recipientNo" : "01012341234",
+        "unsubscribeNo" : "08012341234",
+        "enterpriseName" : "NHN",
+        "createdDateTime" : "2020-09-09T11:25:10.000+09:00"
+    }
+]
+```
