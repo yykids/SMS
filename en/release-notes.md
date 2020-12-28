@@ -7,6 +7,37 @@
     * mtPr 필드가 삭제됩니다.
     * 자세한 사항은 [[API 가이드](./api-guide/#sms_4)]를 참고하시기 바랍니다.
 
+### October 27, 2020
+
+### Feature Updates
+
+- [Console/API] Changed the validation check for the body text when sending out ads
+  - Changed to be able to delete the square brackets from the **[Opt out]**  message in the body text.
+
+### September 22, 2020
+
+### Feature Updates
+
+- [API] Fixed an issue where the result updates were erroneously retrieved based on the time of receipt
+  - Fixed an issue where result updates were not retrieved if the time sent and the time received were different when retrieving updates based on time of receipt.
+- [Console] 080 call block termination period changed
+  - Changed so that the 080 call block termination is possible only after 24 hours.
+- [Console] 080 call block webhook function added
+  - Added a feature of webhook enabling to receive a call from mobile phones which is denied due to 080 call block.
+
+### August 25, 2020
+
+### Feature Updates
+
+- [Console] Tightened up the validation for Excel files to be sent in a bulk
+  - Validation fails when the recipient number is not entered.
+- [Console] Fixed an issue where the files uploaded from the **Register Caller Number**  tab could not be downloaded
+  - Fixed an issue where the files uploaded using document authentication from the **Mange Caller Number > Register Caller Number**  tab could not be downloaded.
+- [Console/API] Improved the validation for the image attachment format
+  - Validation fails if the image format is not .jpg when uploading attachments for MMS.
+- [Console] Improved backup settings validation
+  - Validation fails if '/' is added before or after a file path in the backup settings under the **Send Settings**  tab.
+
 ### July 28, 2020
 ### Feature Updates 
 * [Console/API] Creating Email-type Template ID 
